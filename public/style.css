@@ -1,0 +1,287 @@
+/* GAYA DASAR DAN TATA LETAK UTAMA DENGAN FLEXBOX */
+:root {
+  --primary-color: #0052d4; /* Biru yang lebih modern */
+  --secondary-color: #65c7f7;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --light-bg: #f8f9fa;
+  --dark-text: #343a40;
+  --light-text: #6c757d;
+  --border-color: #dee2e6;
+  --white: #ffffff;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Shadow yang lebih lembut */
+  --font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: var(--font-family);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+}
+
+/* GAYA HEADER */
+.main-header {
+  background-color: var(--white);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1002;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-actions .header-button,
+.header-actions a.header-button-link {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-decoration: none;
+  display: inline-block;
+  font-family: var(--font-family);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.header-actions .header-button:hover,
+.header-actions a.header-button-link:hover {
+  background-color: #0041a8; /* Varian lebih gelap dari primary */
+  transform: translateY(-2px);
+}
+
+/* KONTAINER UTAMA (MAP DAN SIDEBAR) */
+.container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+/* SIDEBAR (Kiri dan Kanan) - EFEK FROSTED GLASS */
+.sidebar,
+.right-sidebar {
+  position: absolute;
+  top: 15px;
+  width: 330px;
+  max-height: calc(100% - 30px);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.sidebar {
+  left: 15px;
+}
+
+.right-sidebar {
+  left: auto;
+  right: 15px;
+  width: 420px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.right-sidebar.hidden {
+  transform: translateX(calc(100% + 30px));
+}
+
+/* Sisa gaya */
+.visualisasi-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.visualisasi-button:hover {
+  background-color: #0041a8;
+}
+
+.info-desa {
+  background-color: var(--white);
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.info-desa h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--dark-text);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.chart-section {
+  background-color: var(--white);
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.chart-section h4 {
+  margin-top: 0;
+  font-size: 1em;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.chart-data-selector {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.data-selector-button {
+  flex: 1;
+  background-color: #e9ecef;
+  border: 1px solid var(--border-color);
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.data-selector-button:hover {
+  background-color: #dee2e6;
+}
+.data-selector-button.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.chart-type-selector {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.chart-type-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.chart-type-button:hover {
+  background-color: #e0e0e0;
+}
+.chart-type-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.chart-container {
+  position: relative;
+  height: 220px;
+  width: 100%;
+}
+.sidebar canvas {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.data-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+.data-table-header h4 {
+  margin: 0;
+  font-size: 1.2em;
+  color: var(--dark-text);
+  font-weight: 600;
+}
+#close-data-table-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+}
+
+.table-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+#pekerjaan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+#pekerjaan-table th,
+#pekerjaan-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+#pekerjaan-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+#pekerjaan-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+#pekerjaan-table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+#no-data-message {
+  text-align: center;
+  padding: 20px;
+  color: var(--light-text);
+  font-style: italic;
+}

@@ -1,0 +1,95 @@
+:root {
+  --primary-color: #0052d4;
+  --border-color: #dee2e6;
+  --white: #ffffff;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  padding: 20px;
+}
+
+.login-box {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.login-box p {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 82, 212, 0.2);
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0041a8;
+}
+
+.error-message {
+  margin-top: 15px;
+  color: #d93025;
+  font-size: 14px;
+  height: 20px;
+}

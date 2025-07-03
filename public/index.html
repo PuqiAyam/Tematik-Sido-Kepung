@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Peta Tematik GeoJSON & Data Pekerjaan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <h1 class="header-title">PETA PEKERJAAN DESA SIDOKEPUNG</h1>
+      <div class="header-actions">
+        <a href="/login.html" class="header-button-link">Masuk</a>
+        <button class="header-button">Panduan</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div id="map"></div>
+
+      <div class="sidebar">
+        <div class="info-desa">
+          <h3 id="selected-area-title">Data Seluruh Desa</h3>
+          <button id="reset-view-button" class="visualisasi-button">
+            Reset Tampilan
+          </button>
+        </div>
+
+        <div class="chart-section">
+          <h4>Data Pekerjaan</h4>
+          <div class="chart-data-selector">
+            <button
+              class="data-selector-button active"
+              data-data-key="jenisKelamin"
+            >
+              Jenis Kelamin
+            </button>
+            <button
+              class="data-selector-button"
+              data-data-key="statusPekerjaan"
+            >
+              Status Pekerjaan
+            </button>
+            <button class="data-selector-button" data-data-key="umur">
+              Umur
+            </button>
+          </div>
+
+          <div class="chart-type-selector">
+            <button class="chart-type-button active" data-chart-type="bar">
+              Bagan Batang
+            </button>
+            <button class="chart-type-button" data-chart-type="pie">
+              Diagram Lingkaran
+            </button>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="pekerjaanChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-sidebar hidden" id="data-table-container">
+        <div class="data-table-header">
+          <h4>Data Penduduk</h4>
+          <button id="close-data-table-button">&times;</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table id="pekerjaan-table">
+            <thead>
+              <tr>
+                <th>RT</th>
+                <th>RW</th>
+                <th>Umur</th>
+                <th>Jenis Kelamin</th>
+                <th>Status Pekerjaan</th>
+              </tr>
+            </thead>
+            <tbody id="pekerjaan-table-body"></tbody>
+          </table>
+          <div id="no-data-message" class="hidden">
+            Tidak ada data untuk ditampilkan.
+          </div>
+        </div>
+      </div>
+
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>

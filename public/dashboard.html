@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Manajemen Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Dashboard Admin</h1>
+      <a href="/login.html" class="logout-button">Logout</a>
+    </header>
+
+    <main class="container">
+      <h2>Manajemen Data Kependudukan</h2>
+      <p>Kelola data penduduk Desa Sidokepung.</p>
+
+      <button id="tambah-data-btn" class="add-button">Tambah Data Baru</button>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>RT</th>
+              <th>RW</th>
+              <th>Nama</th>
+              <th>Umur</th>
+              <th>Jenis Kelamin</th>
+              <th>Status Pekerjaan</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="data-table-body"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <div id="form-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3 id="modal-title">Tambah Data</h3>
+        <form id="data-form">
+          <input type="hidden" id="data-id" />
+          <div class="input-group">
+            <label for="rt">RT</label>
+            <input type="text" id="rt" required placeholder="Contoh: 1" />
+          </div>
+          <div class="input-group">
+            <label for="rw">RW</label>
+            <input type="text" id="rw" required placeholder="Contoh: 2" />
+          </div>
+          <div class="input-group">
+            <label for="nama_anggota">Nama</label>
+            <input type="text" id="nama_anggota" required />
+          </div>
+          <div class="input-group">
+            <label for="umur">Umur</label>
+            <input type="number" id="umur" required />
+          </div>
+          <div class="input-group">
+            <label for="jenis_kelamin">Jenis Kelamin</label>
+            <select id="jenis_kelamin" required>
+              <option value="">Pilih Jenis Kelamin</option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="status_pekerjaan">Status Pekerjaan</label>
+            <input type="text" id="status_pekerjaan" required />
+          </div>
+          <button type="submit" class="save-button">Simpan</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
